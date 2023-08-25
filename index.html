@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>726b</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: "JetBrains Mono", monospace;
+                margin: 0;
+            }
+            .center {
+                margin-left: auto;
+                margin-right: auto;
+                width: 576;
+            }
+            #header {
+                margin-top: 50px;
+                margin-bottom: 50px;
+                position: relative;
+            }
+            #header h1 {
+                margin: 0;
+                padding: 5px 10px;
+                width: auto;
+                display: inline-block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                font-size: 24px;
+                text-align: center;
+                background-color: #222;
+                color: #eee;
+                font-weight: 400;
+            }
+            a.button{
+                background-color:#222;
+                color: #eee;
+                display: inline-block;
+                margin-left: 50%;
+                transform: translate(-50%,0);
+                padding: 5px 10px;
+            }
+            @media (max-width: 640px) {
+                .center {
+                    width: 100%;
+                }
+                #canvas {
+                    width: 100%;
+                }
+                .content {
+                    padding: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <div id="header">
+                <canvas id="canvas"></canvas>
+                <h1>726b</h1>
+            </div>
+            <div class="content">
+                <p>
+                    Web3 and crypto consultancy
+                    <ul>
+                        <li>defi</li>
+                        <li>audits / reviews</li>
+                        <li>game theory, economic security</li>
+                        <li>trading strategies / infra</li>
+                        <li>dev work
+                            <ul>
+                                <li>solidity</li>
+                                <li>python, {java,type}script, go</li>
+                                <li>ok with rust</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    capacity is limited, not all projects accepted
+                </p>
+                <p>
+                    <a class="button" href="mailto:0x726b@proton.me">contact</a>
+                </p>
+            </div>
+        </div>
+        <script>
+            "http:"==location.protocol&&(location.href="https:"+window.location.href.substring(window.location.protocol.length));const[W,H,P,L,R]=[96,32,6,200,50],C=["#FF99C8","#D0F4DE","#FCF6BD","#A9DEF9","#E4C1F9"],bgFn=(t,l,o)=>{let e=(3+Math.sin(2*(Math.PI*o)))/2;return Math.round((Math.cos(((l-H)*e+e**2)/5)*Math.cos((l+(W-t)*e*2+e**2)/20)+Math.sin(((l-H/2)**2*e+(t-W/2)**2)/200+5*e))*5+20)%5},c=document.getElementById("canvas");c.width=W*P,c.height=H*P;const ctx=c.getContext("2d"),F=[],draw=t=>{F[t]||(F[t]=Array(W+1).fill().map((l,o)=>Array(H+1).fill().map((l,e)=>bgFn(o,e,t/L))));for(let l=0;l<W;l++)for(let o=0;o<H;o++)ctx.fillStyle=C[F[t][l][o]],ctx.fillRect(P*l,P*o,P*(l+1),P*(o+1))};let i=0;setInterval(()=>(i=(i+1)%L)&&draw(i),R);
+        </script>
+    </body>
+</html>
